@@ -1,6 +1,7 @@
 import React from 'react';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import SignIn from './components/auth/SignIn';
+import SignUp from './components/auth/SignUp';
 import Home from './components/pages/Home';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
@@ -14,8 +15,6 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
     <BrowserRouter>
-        <div className="App">
-        </div>
       {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
@@ -24,6 +23,9 @@ function App() {
           </Route>
           <Route exact path="/sign-in">
             <SignIn />
+          </Route>
+          <Route exact path="/sign-up">
+            <SignUp />
           </Route>
         </Switch>
     </BrowserRouter>

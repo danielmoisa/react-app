@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
+import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -18,6 +19,9 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
   },
+  link: {
+    marginRight: theme.spacing(2)
+  }
 }));
 
 export default function ButtonAppBar() {
@@ -26,14 +30,27 @@ export default function ButtonAppBar() {
   return (
     <div className={classes.root}>
       <AppBar color="default" position="static">
+      <Container>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Logo
+            <Link to="/">Company Name</Link>
           </Typography>
+
+          <Typography variant="subtitle1" className={classes.link}>
+            <Link to="#">FEATURES</Link>
+          </Typography>
+          <Typography variant="subtitle1" className={classes.link}>
+            <Link to="#">ENTERPRISE</Link>
+          </Typography>
+          <Typography variant="subtitle1" className={classes.link}>
+            <Link to="#">SUPPORT</Link>
+          </Typography>
+
           <Link to="/sign-in">
             <Button color="primary" variant="contained">Login</Button>
           </Link>
         </Toolbar>
+        </Container>
       </AppBar>
     </div>
   );
