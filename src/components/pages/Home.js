@@ -38,6 +38,15 @@ const useStyles = makeStyles(theme => ({
       listStyle: 'none',
     },
   },
+  image: {
+    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundRepeat: 'no-repeat',
+    backgroundColor:
+      theme.palette.type === 'dark' ? theme.palette.grey[900] : theme.palette.grey[50],
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    height: '20rem'
+  },
   appBar: {
     borderBottom: `1px solid ${theme.palette.divider}`
   },
@@ -135,6 +144,9 @@ export default function Home() {
     <React.Fragment>
       <CssBaseline />
       <Header />
+      
+      <Box className={classes.image} />
+     
       {/* Hero unit */}
       <Container maxWidth="sm" component="main" className={classes.heroContent}>
         <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
