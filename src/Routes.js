@@ -4,6 +4,7 @@ import SignUp from './components/auth/SignUp';
 import Home from './components/pages/Home';
 import Dashboard from './components/dashboard/Index';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Features from './components/pages/Features';
 
 export default function Routes() {
   return(
@@ -15,6 +16,7 @@ export default function Routes() {
           <Route path="/sign-in" component={SignIn} />
           <Route path="/sign-up" component={SignUp} />
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/features" component={Features} />
         </Switch>
     </BrowserRouter>
   )

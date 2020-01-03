@@ -8,11 +8,12 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import StarIcon from '@material-ui/icons/StarBorder';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
+import { Link } from 'react-router-dom';
 import heroBg from '../../media/hero-bg.jpg';
+import appSvg from '../../media/app.svg';
 
 import Header from './Header';
 
@@ -46,7 +47,16 @@ const useStyles = makeStyles(theme => ({
       theme.palette.type === 'dark' ? theme.palette.grey[900] : theme.palette.grey[50],
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    height: '20rem'
+    height: '17rem'
+  },
+  app: {
+    backgroundImage: `url(${appSvg})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundColor:
+      theme.palette.type === 'dark' ? theme.palette.grey[900] : theme.palette.grey[50],
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    height: '30rem'
   },
   appBar: {
     borderBottom: `1px solid ${theme.palette.divider}`
@@ -61,7 +71,8 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1, 1.5),
   },
   heroContent: {
-    padding: theme.spacing(8, 0, 6),
+    padding: theme.spacing(6, 0, 6),
+    textAlign: 'center',
   },
   cardHeader: {
     backgroundColor:
@@ -83,6 +94,12 @@ const useStyles = makeStyles(theme => ({
       paddingBottom: theme.spacing(6),
     },
   },
+  overlay: {
+    height: '100%',
+    width: '100%',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    color: '#fff',
+  }
 }));
 
 const tiers = [
@@ -146,7 +163,39 @@ export default function Home() {
       <CssBaseline />
       <Header />
       
-      <Box className={classes.image} />
+      <Box className={classes.image}>
+        <Box className={classes.overlay}>
+        <Container maxWidth="sm" component="main" className={classes.heroContent}>
+          <Typography variant="h5" align="center" component="p">
+            Quickly build an effective pricing table potential customers with this layout.
+            It&apos;s built with Material-UI components with little customization.
+          </Typography>
+            <Link to="/sign-up">
+              <Button size="large" variant="contained" color="primary">
+                Try it now
+              </Button>
+            </Link>
+          </Container>
+        </Box>
+      </Box>
+
+      <Container maxWidth="md" component="main" className={classes.heroContent}>
+        <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+          Product
+        </Typography>
+        <Grid container spacing={5}>
+          <Grid item xs={12} md={8}>
+            <Box className={classes.app}>
+            </Box>
+          </Grid>
+
+          <Grid item xs={12} md={4}>
+            <Typography variant="body1" component="p" color="textSecondary" align="left">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse urna ligula, sodales quis lectus vitae, posuere vehicula erat. Morbi tellus orci, vestibulum eget viverra eget, pulvinar quis nisl. Ut volutpat ornare odio ut varius. Aenean pretium nec eros ut sollicitudin. 
+            </Typography>
+          </Grid>
+        </Grid>
+      </Container>
      
       {/* Hero unit */}
       <Container maxWidth="sm" component="main" className={classes.heroContent}>
@@ -211,7 +260,7 @@ export default function Home() {
               <ul>
                 {footer.description.map(item => (
                   <li key={item}>
-                    <Link href="#" variant="subtitle1" color="textSecondary">
+                    <Link to="#">
                       {item}
                     </Link>
                   </li>

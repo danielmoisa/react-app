@@ -38,9 +38,12 @@ const useStyles = makeStyles(theme => ({
   },
   links: {
     marginRight: '1rem',
+    color: '#fff',
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
+    fontSize: '14px',
+    letterSpacing: 1,
   },
 }));
 
@@ -115,8 +118,8 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="default">
-      <Container>
+      <AppBar position="static" color="primary">
+      <Container maxWidth="xl" component="main">
         <Toolbar>
           <IconButton onClick={toggleDrawer('left', true)} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
@@ -125,19 +128,25 @@ export default function ButtonAppBar() {
         {sideList('left')}
       </Drawer>
           <Typography variant="h6" className={classes.title}>
-            <Link to="/">Easy Invoice</Link>
+            <Link to="/" style={{color: '#fff'}}>Easy Invoice</Link>
           </Typography>
+          <Link to="/features">
           <Typography variant="subtitle1" className={classes.links}>
-            <Link to="/features">FEATURES</Link>
+            FEATURES
           </Typography>
+          </Link>
+          <Link to="/enterprise">
           <Typography variant="subtitle1" className={classes.links}>
-            <Link to="/enterprise">ENTERPRISE</Link>
+            ENTERPRISE
           </Typography>
+          </Link>
+          <Link to="/support">
           <Typography variant="subtitle1" className={classes.links}>
-            <Link to="/support">SUPPORT</Link>
+            SUPPORT
           </Typography>
+          </Link>
           <Link to="/sign-in">
-            <Button variant="contained" color="primary">Sign In</Button>
+            <Button variant="contained" color="secondary" size="small">Sign In</Button>
           </Link>
         </Toolbar>
         </Container>

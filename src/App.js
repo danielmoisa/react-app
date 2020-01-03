@@ -6,9 +6,10 @@ function App() {
   const theme = createMuiTheme({
     palette: {
       primary: { main: '#2F46A7' },
-      secondary: { main: '#ff0000' },
+      secondary: { main: '#f45905' },
     }
   });
+  
   return (
     <ThemeProvider theme={theme}>
       <Routes />
